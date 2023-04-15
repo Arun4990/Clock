@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="12.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1><span id="hours"></span>Hrs</h1>
+        </div>
+        <div class="box">
+            <h1><span id="mins"></span>Mins</h1>
+        </div>
+        <div class="box">
+            <h1><span id="second"></span>Secs</h1>
+        </div>
+    </div>
+    <div class="cont2">
+        <div class="box"><span id="day"></span></div>
+
+        <div class="box"><span id="date"></span></div>
+    </div>
+    <script>
+        let hours=document.getElementById("hours");
+        let mins=document.getElementById("mins");
+        let second=document.getElementById("second");
+        let day=document.getElementById("day");
+        let date1=document.getElementById("date")
+        setInterval(() => {
+            let date=new Date;
+            hours.innerHTML=date.getHours();
+            mins.innerHTML=date.getMinutes();
+            second.innerHTML=date.getSeconds();
+            date1.innerHTML=`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
+            let a=date.getDay();
+            console.log(typeof(a))
+            switch(a){
+                case 0:
+                    day.innerHTML="Sunday";
+                    break;
+                case 1:
+                    day.innerHTML="Monday";
+                    break;
+                case 2:
+                    day.innerHTML="Tuesday";
+                    break;
+                case 3:
+                    day.innerHTML="Wednesday";
+                    break;
+                case 4:
+                    day.innerHTML="Thursday";
+                    break;
+                case 5:
+                    day.innerHTML="Friday";
+                    break;
+                case 6:
+                    day.innerHTML="Saturday";
+            }
+
+
+        },1000);
+    </script>
+</body>
+</html>
